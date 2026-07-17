@@ -1,0 +1,60 @@
+aid: signzy
+name: Signzy
+review:
+  question: Does Signzy expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-17'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Signzy's documented API marketplace is
+    request/response REST over HTTPS only. No WebSocket (ws:// or wss://) and no
+    HTTP Server-Sent Events (SSE) streaming surface is documented in the public
+    developer docs at https://docs.signzy.com. Video KYC is an assisted
+    human-agent product delivered through Signzy's own client/SDK; no public
+    developer-facing WebSocket signaling endpoint is documented.
+findings:
+  summary: |
+    Signzy does not publish a documented public WebSocket API. The API
+    marketplace (240+ endpoints) is synchronous REST over HTTPS, authenticated
+    with a LoopBack-style access token passed in the Authorization header. The
+    production host https://api.signzy.app returned HTTP 401 at the root on a
+    live probe (2026-07-17), confirming an authenticated REST surface. No
+    realtime, bidirectional, or streaming WebSocket endpoint is documented for
+    identity verification, Video KYC, AML screening, or any other product.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.signzy.app
+      documented: true
+    - protocol: REST
+      scheme: https
+      baseURL: https://api-preproduction.signzy.app
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Signzy's developer docs, API marketplace, or product pages as of the review date.
+  endpointsConfirmedRest:
+    - POST https://api.signzy.app/api/customers/login
+    - POST https://api.signzy.app/api/v3/aadhaar/verify
+    - POST https://api.signzy.app/api/v3/pan/simple
+    - POST https://api.signzy.app/api/v3/us/document-intelligence-advance
+    - POST https://api.signzy.app/api/v3/underwriting/get-passbook-otp
+sources:
+  - url: https://docs.signzy.com
+    type: Documentation
+    note: Developer docs portal; per-endpoint REST reference. No WebSocket mentioned.
+  - url: https://docs.signzy.com/us-apis/id-intelligence-advance
+    type: APIReference
+    note: US document intelligence endpoint documented as POST over HTTPS.
+  - url: https://www.signzy.com/developer-page
+    type: Documentation
+    note: API marketplace landing page lists REST verification products only.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: false
+  reason: |
+    No WebSocket or SSE protocol surface exists in Signzy's public
+    documentation, so no AsyncAPI document was authored and no AsyncAPI
+    pointer was added to apis.yml.

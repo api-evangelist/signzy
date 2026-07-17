@@ -1,0 +1,243 @@
+{
+  "info": {
+    "name": "Signzy Verification API",
+    "description": "Modeled-from-docs Postman collection for the Signzy identity verification / KYC / KYB / AML marketplace. Auth flow: POST /api/customers/login with username + API key returns an access token in `id`; set it as the collection variable `access_token`, sent raw in the Authorization header (no Bearer prefix). Base URL defaults to production https://api.signzy.app.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.signzy.app"
+    },
+    {
+      "key": "access_token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login (obtain access token)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "login"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<your_username>\",\n  \"password\": \"<your_api_key>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Exchange username + API key for an access token. The `id` field in the response is the token used in the Authorization header on subsequent calls."
+          }
+        },
+        {
+          "name": "Logout (invalidate token)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customers/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customers",
+                "logout"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identity (India)",
+      "item": [
+        {
+          "name": "Verify Aadhaar",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/aadhaar/verify",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v3",
+                "aadhaar",
+                "verify"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aadhaarNumber\": \"<12_digit_aadhaar>\",\n  \"consent\": \"Y\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Verify PAN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/pan/simple",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v3",
+                "pan",
+                "simple"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"panNumber\": \"<10_char_pan>\",\n  \"consent\": \"Y\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identity (US)",
+      "item": [
+        {
+          "name": "US Document Intelligence (Advance)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/us/document-intelligence-advance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v3",
+                "us",
+                "document-intelligence-advance"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"frontUrl\": \"https://example.com/id-front.jpg\",\n  \"backUrl\": \"https://example.com/id-back.jpg\",\n  \"country\": \"US\",\n  \"idType\": \"driving license\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Banking",
+      "item": [
+        {
+          "name": "Get Passbook OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v3/underwriting/get-passbook-otp",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v3",
+                "underwriting",
+                "get-passbook-otp"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountNumber\": \"<account_number>\",\n  \"ifsc\": \"<ifsc_code>\",\n  \"mobileNumber\": \"<mobile>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

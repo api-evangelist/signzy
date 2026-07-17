@@ -1,0 +1,80 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Signzy
+providerId: signzy
+created: '2026-07-17'
+modified: '2026-07-17'
+reconciled: false
+tags:
+- Identity Verification
+- KYC
+- KYB
+- AML
+- Compliance
+- Plans
+description: >-
+  Signzy does not publish public per-call list prices. Its 240+ API marketplace
+  is sold on a contact-sales / quote basis, typically per-verification
+  (pay-per-check) with volume tiers negotiated per customer and per region
+  (India, US, Middle East, APAC). Enterprise agreements bundle Video KYC, the
+  no-code orchestrator, and GRC suite. Public pricing is not disclosed, so
+  specific per-endpoint rates are not reconciled in this artifact.
+notes: >-
+  Pricing is quote-based and gated behind sales contact; verify commercial
+  terms directly with Signzy. No public price list was found on 2026-07-17.
+sources:
+- https://www.signzy.com/developer-page
+- https://www.signzy.com/contact-us
+- https://www.signzy.com/india-api-marketplace
+plans:
+- id: signzy-pay-per-verification
+  name: Pay-per-verification (quote-based)
+  type: usage
+  description: >-
+    Metered per successful verification / API call, priced per product and
+    region under a negotiated commercial agreement. No public list price.
+  entries:
+  - label: Per verification call
+    name: per_verification
+    type: usage
+    metric: verifications
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales (quote-based)
+    userMultiplied: false
+  elements:
+  - name: Identity Verification
+  - name: Aadhaar / PAN and India checks
+  - name: US Document Intelligence
+  - name: Business Verification (KYB)
+  - name: AML / Sanctions / PEP Screening
+  - name: Bank Verification / Account Aggregator
+- id: signzy-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Volume commitments bundling Video KYC, the no-code orchestrator platform,
+    GRC suite, data-localization / on-region deployment and dedicated support.
+    Negotiated terms; contact Signzy sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Video KYC
+  - name: No-Code Orchestrator Platform
+  - name: GRC Suite
+  - name: Data Localization / Residency
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

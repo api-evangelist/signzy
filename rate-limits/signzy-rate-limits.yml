@@ -1,0 +1,54 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Signzy
+providerId: signzy
+created: '2026-07-17'
+modified: '2026-07-17'
+reconciled: false
+tags:
+- Identity Verification
+- KYC
+- Compliance
+- Rate Limiting
+- Quotas
+description: >-
+  Signzy does not publish specific public rate-limit numbers. Throughput is
+  governed per-account by the commercial agreement and access token, and the
+  preproduction / sandbox environment carries lower quotas than production.
+  Access tokens issued by /api/customers/login are short-lived (a `ttl` in
+  seconds) and must be refreshed. Specific per-endpoint request-per-minute
+  values are not documented publicly and are not reconciled here.
+notes: >-
+  Confirm per-account and per-endpoint limits with Signzy during onboarding;
+  no public rate-limit table was found on 2026-07-17.
+sources:
+- https://docs.signzy.com
+- https://docs.signzy.com/investor-onboarding-io/authentication
+responseCodes:
+  throttled: 429
+  unauthorized: 401
+limits:
+- name: Per-account throughput
+  scope: account
+  metric: requests
+  limit: see commercial agreement
+  notes: Governed by contract and access token; not published.
+- name: Token TTL
+  scope: token
+  metric: seconds
+  limit: see login response ttl
+  notes: Access token from /api/customers/login expires after its ttl; re-login to refresh.
+- name: Sandbox quota
+  scope: environment
+  metric: requests
+  limit: lower than production
+  notes: Preproduction host api-preproduction.signzy.app carries reduced quotas for testing.
+policies:
+- name: Token Expiry
+  description: Access tokens are short-lived; clients must re-authenticate when ttl elapses.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter on HTTP 429.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

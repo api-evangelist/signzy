@@ -1,0 +1,26 @@
+generated: '2026-07-17'
+method: searched
+probe: true
+source: https://www.signzy.com/
+url: https://www.signzy.com/security-and-compliance
+certifications:
+- ISO 27001
+- SOC 2
+- GDPR
+- FATF-aligned
+evidence:
+- source: https://www.signzy.com/
+  keywords:
+  - iso 27001
+  - soc 2
+  - gdpr
+  - fatf
+  - data localization
+  - 256-bit ssl encryption
+  - 24x7 security monitoring
+notes: >-
+  Signzy is ISO 27001 certified and SOC 2 compliant, with GDPR alignment,
+  FATF compliance, data localization / residency capabilities, 256-bit SSL
+  encryption, and 24x7 security incident and event monitoring. As a KYC/KYB/AML
+  provider it operates under regulator frameworks (e.g. RBI for Video KYC in
+  India) and processes personally identifiable and biometric data.

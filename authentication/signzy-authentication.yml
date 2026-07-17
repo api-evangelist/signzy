@@ -1,0 +1,25 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/signzy-openapi.yml
+summary:
+  types:
+  - apiKey
+notes: >-
+  Signzy uses a LoopBack-style token flow. Clients POST a username and API key
+  (as password) to /api/customers/login and receive an access token in the `id`
+  field of the response (with `ttl` and `created`). That token is then sent as
+  the RAW value of the `Authorization` header on subsequent calls - NOT a
+  Bearer token and NOT an HTTP Basic credential. A `?access_token=` query
+  parameter is also accepted but discouraged. Confirmed live: api.signzy.app
+  returns HTTP 401 at root (auth required) on probe 2026-07-17.
+schemes:
+- name: accessToken
+  type: apiKey
+  in: header
+  header: Authorization
+  format: raw-token
+  tokenEndpoint: /api/customers/login
+  sources:
+  - openapi/signzy-openapi.yml
+  - https://docs.signzy.com/investor-onboarding-io/authentication
+  - https://docs.signzy.com/generic-onboarding/login-api
