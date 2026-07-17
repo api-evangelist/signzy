@@ -1,0 +1,42 @@
+generated: '2026-07-17'
+method: derived
+format: plain
+source: openapi/signzy-openapi.yml
+envelope: >-
+  Error responses return a plain JSON envelope with `status` and `message`
+  fields (see VerificationResult). Signzy does NOT use RFC 9457
+  application/problem+json. Titles/remediation below are derived from the
+  documented HTTP status semantics of each operation.
+problems:
+- status: 401
+  title: Missing or invalid access token
+  remediation: >-
+    Obtain a fresh access token from POST /api/customers/login and send it as
+    the raw value of the Authorization header (no Bearer prefix). Tokens are
+    short-lived (ttl in seconds).
+  source_operations:
+  - openapi/signzy-openapi.yml#verifyAadhaar
+  - openapi/signzy-openapi.yml#verifyPan
+  - openapi/signzy-openapi.yml#usDocumentIntelligenceAdvance
+  - openapi/signzy-openapi.yml#getPassbookOtp
+- status: 422
+  title: Validation error
+  remediation: >-
+    A required field is missing or malformed (e.g. aadhaarNumber, panNumber,
+    consent). Correct the request body against the operation schema.
+  source_operations:
+  - openapi/signzy-openapi.yml#verifyAadhaar
+  - openapi/signzy-openapi.yml#verifyPan
+  - openapi/signzy-openapi.yml#getPassbookOtp
+- status: 400
+  title: Bad request
+  remediation: Malformed request; verify image URLs, country and idType.
+  source_operations:
+  - openapi/signzy-openapi.yml#usDocumentIntelligenceAdvance
+- status: 409
+  title: Conflict
+  remediation: >-
+    The document-intelligence request conflicts with existing state or a
+    duplicate submission; retry with corrected inputs.
+  source_operations:
+  - openapi/signzy-openapi.yml#usDocumentIntelligenceAdvance

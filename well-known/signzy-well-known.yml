@@ -1,0 +1,38 @@
+generated: '2026-07-17'
+method: searched
+source: live probes of /.well-known/* on Signzy hosts (2026-07-17)
+notes: >-
+  No /.well-known/ discovery documents are published. The production API host
+  api.signzy.app returns HTTP 401 for every /.well-known/ path (the entire
+  surface sits behind token auth), and the marketing/docs hosts return 404.
+  No RFC 9116 security.txt, no OpenID/OAuth discovery, no api-catalog and no
+  ai-plugin.json were found. Absence recorded honestly.
+hosts:
+- host: https://api.signzy.app
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+- host: https://www.signzy.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://docs.signzy.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

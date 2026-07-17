@@ -1,0 +1,54 @@
+
+[title] Signzy Document Portal
+[path] /
+
+## About Us
+
+Welcome to Signzy's document portal! Our platform redefines the speed, accuracy, and experience of customer and business onboarding for financial institutions using digital media.&#x20;
+
+We are a market-leading platform that is revolutionizing the onboarding process for financial institutions using the digital medium. Our award-winning no-code GO platform delivers seamless, end-to-end, and multi-channel onboarding journeys while offering customizable workflows and access to a marketplace of 240+ bespoke APIs.
+
+We work with over 240 financial institutions globally, including the 4 largest banks in India and a Top 3 acquiring Bank in the US. Our platform enables over 10 million end customer and business onboardings every month with a success rate of 99%, and we have reduced the time to market from 6 months to just 3-4 weeks for our clients.&#x20;
+
+## Our Document Portal
+
+This documentation portal is a centralized hub for all documentation related to our products and services. Here, you will find guides, reference materials, and other resources to help you effectively use our platform and APIs.
+
+Here you'll find comprehensive documentation to help you understand and get started, as well as support you if you get stuck.&#x20;
+
+To get started, you can explore the following categories:
+
+::::LinkArray
+:::LinkArrayItem{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/w0YdjmC6Uxu0AJ6sPj9OT/7lOXhKljPH38_oKZ2XlRH_export-collection-3.png"}
+## <a href="https://docs.signzy.com/generic-onboarding" target="_blank">No Code Platform</a>
+:::
+
+:::LinkArrayItem{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/w0YdjmC6Uxu0AJ6sPj9OT/w58CCk_-sG7fGUry5axge_export-collection-5.png"}
+## <a href="https://docs.signzy.com/investor-onboarding-io" target="_blank">Investor Onboarding</a>
+:::
+
+:::LinkArrayItem{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/w0YdjmC6Uxu0AJ6sPj9OT/oVJinzO47QjfaGmQxAcmN_vkyc.png"}
+## <a href="https://docs.signzy.com/vkyc" target="_blank">Video KYC</a>
+:::
+
+:::LinkArrayItem{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/w0YdjmC6Uxu0AJ6sPj9OT/AlGEnN_tqUV8g6KM4dyEN_export-collection-47.png"}
+## <a href="https://docs.signzy.com/orchestrator-stack-and-platform" target="_blank">Orchestrator Stack & Platform</a>
+:::
+
+:::LinkArrayItem{headerType="COLOR" headerColor="#5f7ac3"}
+##
+:::
+
+:::LinkArrayItem{headerType="IMAGE" headerImage="https://archbee-image-uploads.s3.amazonaws.com/ZvFLQmA6N6x9l0WKmXeed-E5S97o3lJTAmyOb-MOY4p-20241001-123316.png"}
+## Governance, Risk & Compliance Suite
+:::
+::::
+
+We strive to provide comprehensive and up-to-date documentation, but we understand that sometimes you may have questions or encounter issues not covered in our materials. If you need further assistance, you can contact us.&#x20;
+
+## Contact Us
+
+To get in touch with our product champions, simply visit <a href="https://www.signzy.com/contact/" target="_blank">https\://www\.signzy.com/contact/</a> or send an email to help\@signzy.com. Our team will connect you with the right expert who can help you with your specific needs.
+
+Thank you for choosing Signzy Technologies. We hope you find our documentation portal helpful and informative.
+

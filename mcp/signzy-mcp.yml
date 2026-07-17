@@ -1,0 +1,34 @@
+generated: '2026-07-17'
+method: derived
+status: candidate
+source: openapi/signzy-openapi.yml
+notes: >-
+  No official hosted or remote Signzy MCP server was found (docs, npm
+  @modelcontextprotocol, MCP registries all negative on 2026-07-17). This is a
+  DERIVED candidate tool list - one tool per documented OpenAPI operation - as a
+  starting point for exposing the Signzy verification marketplace to agents.
+  These operations touch PII, biometric and financial-identity data; any real
+  MCP deployment should bind a subject, tight token TTLs, and audit (see
+  agentic-access/signzy-agentic-access.yml).
+server:
+  name: signzy
+  transport: http
+tools:
+- name: login
+  description: Exchange a username and API key for a short-lived access token.
+  source_operation: openapi/signzy-openapi.yml#login
+- name: logout
+  description: Invalidate the current access token.
+  source_operation: openapi/signzy-openapi.yml#logout
+- name: verify_aadhaar
+  description: Verify an Indian Aadhaar number and return masked demographic details.
+  source_operation: openapi/signzy-openapi.yml#verifyAadhaar
+- name: verify_pan
+  description: Validate an Indian PAN against the income-tax database.
+  source_operation: openapi/signzy-openapi.yml#verifyPan
+- name: us_document_intelligence_advance
+  description: OCR and authenticity check for a US identity document from an image URL.
+  source_operation: openapi/signzy-openapi.yml#usDocumentIntelligenceAdvance
+- name: get_passbook_otp
+  description: Trigger a bank passbook OTP in an underwriting verification workflow.
+  source_operation: openapi/signzy-openapi.yml#getPassbookOtp

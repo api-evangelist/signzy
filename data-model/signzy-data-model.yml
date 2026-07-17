@@ -1,0 +1,48 @@
+generated: '2026-07-17'
+method: derived
+source: openapi/signzy-openapi.yml
+notes: >-
+  Entity graph derived from the modeled OpenAPI component schemas. The Signzy
+  verification marketplace is largely stateless request/response - each
+  verification is an independent call keyed by an access token from a session
+  login - so the model is shallow (a session and a set of verification
+  request/result pairs) rather than a rich relational graph.
+entities:
+- name: Session
+  schema: LoginResponse
+  key: id
+  fields: [id, ttl, created, userId]
+  note: Access-token session issued by /api/customers/login.
+- name: AadhaarVerification
+  request: AadhaarRequest
+  result: VerificationResult
+  key: aadhaarNumber
+- name: PanVerification
+  request: PanRequest
+  result: VerificationResult
+  key: panNumber
+- name: UsDocumentVerification
+  request: UsDocumentRequest
+  result: UsDocumentResult
+  key: null
+- name: PassbookVerification
+  request: PassbookOtpRequest
+  result: VerificationResult
+  key: accountNumber
+relationships:
+- from: AadhaarVerification
+  to: Session
+  type: belongs_to
+  via: Authorization (access token)
+- from: PanVerification
+  to: Session
+  type: belongs_to
+  via: Authorization (access token)
+- from: UsDocumentVerification
+  to: Session
+  type: belongs_to
+  via: Authorization (access token)
+- from: PassbookVerification
+  to: Session
+  type: belongs_to
+  via: Authorization (access token)

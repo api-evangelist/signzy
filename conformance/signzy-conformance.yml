@@ -1,0 +1,43 @@
+generated: '2026-07-17'
+method: derived
+source: >-
+  openapi/signzy-openapi.yml + security/signzy-trust-center.yml (published
+  certifications) + docs.signzy.com
+notes: >-
+  Standards posture derived from the modeled OpenAPI and Signzy's published
+  security/compliance claims. Signzy is an India-origin KYC/KYB/AML provider;
+  its Video KYC product operates under RBI (Reserve Bank of India) framework,
+  and it advertises ISO 27001, SOC 2 and GDPR alignment plus FATF compliance.
+standards:
+- id: oauth2
+  conforms: false
+  evidence: >-
+    Auth is a LoopBack-style apiKey token flow (POST /api/customers/login ->
+    raw Authorization header), not OAuth 2.0.
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors return a plain {status, message} envelope, not
+    application/problem+json.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: No /.well-known/security.txt published (probe HTTP 401/404).
+- id: iso-27001
+  conforms: true
+  evidence: Published ISO 27001 certification (security/signzy-trust-center.yml).
+- id: soc2
+  conforms: true
+  evidence: Published SOC 2 compliance (security/signzy-trust-center.yml).
+- id: gdpr
+  conforms: true
+  evidence: GDPR alignment claimed on signzy.com.
+- id: fatf
+  conforms: true
+  evidence: FATF-aligned AML posture claimed on signzy.com.
+- id: rbi-video-kyc
+  conforms: true
+  evidence: >-
+    Video KYC product marketed as RBI-compliant assisted onboarding
+    (docs.signzy.com/vkyc).

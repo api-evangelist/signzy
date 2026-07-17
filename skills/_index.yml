@@ -1,0 +1,20 @@
+generated: '2026-07-17'
+method: generated
+source: openapi/signzy-openapi.yml
+notes: >-
+  Packaged Agent Skills grounded in real operationIds from the modeled Signzy
+  OpenAPI. Each step references a verified operationId (login, logout,
+  verifyAadhaar, verifyPan, usDocumentIntelligenceAdvance).
+skills:
+- file: signzy-authenticate.md
+  name: Authenticate with Signzy
+  api: openapi/signzy-openapi.yml
+  operations: [login, logout]
+- file: signzy-verify-india-identity.md
+  name: Verify an Indian identity (Aadhaar / PAN)
+  api: openapi/signzy-openapi.yml
+  operations: [login, verifyAadhaar, verifyPan]
+- file: signzy-verify-us-document.md
+  name: Verify a US identity document
+  api: openapi/signzy-openapi.yml
+  operations: [login, usDocumentIntelligenceAdvance]

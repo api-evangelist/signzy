@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Signzy Verification API
+  version: 1.0.0
+extends: openapi/signzy-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-17'
+    x-apievangelist-provider: signzy
+    x-apievangelist-auth-style: loopback-token
+    x-apievangelist-notes: >-
+      Authorization header carries the raw access token from
+      /api/customers/login (no Bearer prefix). Marketplace exposes 240+
+      verification building blocks; this spec models a representative subset.
+- target: $.info
+  update:
+    x-apievangelist-data-classes:
+    - PII
+    - biometric
+    - financial-identity
+    x-apievangelist-status-page: https://status.signzy.com
+- target: $.paths['/api/v3/aadhaar/verify'].post
+  update:
+    x-apievangelist-consent-required: true
+    x-apievangelist-region: IN
+- target: $.paths['/api/v3/pan/simple'].post
+  update:
+    x-apievangelist-consent-required: true
+    x-apievangelist-region: IN
+- target: $.paths['/api/v3/us/document-intelligence-advance'].post
+  update:
+    x-apievangelist-region: US

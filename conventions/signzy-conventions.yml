@@ -1,0 +1,45 @@
+generated: '2026-07-17'
+method: derived
+source: >-
+  openapi/signzy-openapi.yml + authentication/signzy-authentication.yml +
+  errors/signzy-problem-types.yml + docs.signzy.com
+notes: >-
+  Cross-cutting request/response semantics for the Signzy verification
+  marketplace, derived from the modeled OpenAPI and the developer docs.
+authentication:
+  style: token
+  mechanism: >-
+    LoopBack-style flow - POST username + API key to /api/customers/login,
+    receive an access token in the `id` field, then send that token as the RAW
+    value of the Authorization header (NOT a Bearer prefix). A ?access_token=
+    query parameter is also accepted but discouraged.
+  ref: authentication/signzy-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    No idempotency key header or parameter is documented. Verification calls
+    are POST and treated as fresh each time; callers must dedupe on their side.
+pagination:
+  supported: false
+  note: Documented endpoints are single-record verification calls; no list pagination.
+versioning:
+  style: uri-path
+  example: /api/v3/aadhaar/verify
+  ref: lifecycle/signzy-lifecycle.yml
+request_format:
+  media_type: application/json
+  method: POST
+error_envelope:
+  shape: '{ status, message }'
+  problem_json: false
+  ref: errors/signzy-problem-types.yml
+rate_limiting:
+  signaling: none-documented
+  note: >-
+    No public rate-limit response headers documented; throughput governed per
+    commercial agreement.
+  ref: rate-limits/signzy-rate-limits.yml
+regionalization:
+  note: >-
+    Endpoints are region-scoped by product (India Aadhaar/PAN, US document
+    intelligence, etc.); data localization / residency is advertised.

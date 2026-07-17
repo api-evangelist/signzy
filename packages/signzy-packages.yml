@@ -1,0 +1,34 @@
+generated: '2026-07-17'
+method: searched
+source: >-
+  Registry searches (npm, PyPI, Packagist, RubyGems) returned no first-party
+  Signzy client library. The Signzy GitHub organization (https://github.com/signzy,
+  "Signzy", Bengaluru) publishes product SDK repositories instead; the two
+  first-party, non-fork SDKs found there are catalogued below.
+notes: >-
+  Signzy does not ship a general-purpose REST API client library on the public
+  package registries - the 240+ API marketplace is consumed directly over HTTPS
+  with a token from /api/customers/login. The first-party SDKs it does publish
+  are product-specific mobile/embedded components distributed from its GitHub
+  org (the eSign Android SDK via JitPack, and a PII-masking JS utility). npm,
+  PyPI, RubyGems and Packagist searches for "signzy" returned no official
+  package (Packagist "signysphp" is an unrelated project).
+packages:
+- language: java
+  registry: jitpack
+  name: com.github.signzy:esign-sdk
+  url: https://github.com/signzy/esign-sdk
+  install: "implementation 'com.github.signzy:esign-sdk:<version>'  # via JitPack"
+  official: true
+  description: >-
+    Signzy eSign Android SDK, distributed as an AAR served through jitpack.io
+    for embedding Aadhaar eSign / digital-signing flows in Android apps.
+- language: javascript
+  registry: github
+  name: signzy/pii-masker
+  url: https://github.com/signzy/pii-masker
+  install: "git clone https://github.com/signzy/pii-masker"
+  official: true
+  description: >-
+    First-party JavaScript utility from the Signzy GitHub organization for
+    masking personally identifiable information. Not published to npm.

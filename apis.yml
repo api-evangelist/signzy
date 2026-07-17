@@ -221,6 +221,52 @@ common:
   url: finops/signzy-finops.yml
 - url: https://www.signzy.com/blogs
   type: Blog
+- type: LLMsTxt
+  url: llms/signzy-llms.txt
+- type: Packages
+  url: packages/signzy-packages.yml
+- type: SDKs
+  url: packages/signzy-packages.yml
+- type: WellKnown
+  url: well-known/signzy-well-known.yml
+- type: MCPServer
+  url: mcp/signzy-mcp.yml
+- type: Overlay
+  url: overlays/signzy-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/signzy-conformance.yml
+- type: Compliance
+  url: security/signzy-trust-center.yml
+- type: ErrorCatalog
+  url: errors/signzy-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/signzy-lifecycle.yml
+- type: StatusPage
+  url: https://status.signzy.com
+- type: Conventions
+  url: conventions/signzy-conventions.yml
+- type: DataModel
+  url: data-model/signzy-data-model.yml
+- type: Sandbox
+  url: sandbox/signzy-sandbox.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DeveloperPortal
+  url: https://docs.signzy.com
+- type: APIReference
+  url: https://www.signzy.com/us/verification-api-marketplace/
+- type: GettingStarted
+  url: https://docs.signzy.com/getting-started
+- type: Support
+  url: https://www.signzy.com/contact
+- type: TermsOfService
+  url: https://www.signzy.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://www.signzy.com/privacy-policy/
+- type: SignUp
+  url: https://www.signzy.com/contact
+- type: Postman
+  url: collections/signzy.postman_collection.json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

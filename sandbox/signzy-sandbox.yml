@@ -1,0 +1,27 @@
+generated: '2026-07-17'
+method: searched
+source: openapi/signzy-openapi.yml servers[] + docs.signzy.com + live probe
+notes: >-
+  Signzy separates test and live traffic by ENVIRONMENT HOST, not by key
+  prefix. A dedicated preproduction / sandbox host is documented and live.
+  Signzy does not publish universal magic test values (test Aadhaar/PAN numbers,
+  test cards): because the marketplace verifies real government IDs and bank
+  accounts, sandbox credentials and any test identifiers are provisioned
+  per-account under the commercial agreement. No public test fixtures are
+  published, so none are invented here.
+environments:
+- name: production
+  base_url: https://api.signzy.app
+  live_probe: HTTP 401 at root (2026-07-17) - authenticated REST surface confirmed.
+- name: preproduction
+  base_url: https://api-preproduction.signzy.app
+  purpose: Sandbox / preproduction testing with lower quotas than production.
+  live_probe: HTTP 404 at root (2026-07-17) - no index route.
+test_credentials:
+  provisioning: per-account (contact Signzy)
+  published_values: none
+test_values:
+  published: false
+  note: >-
+    No public magic test identifiers documented. Sandbox verification inputs
+    are provided per-account.

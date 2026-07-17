@@ -1,0 +1,25 @@
+generated: '2026-07-17'
+method: searched
+source: >-
+  openapi/signzy-openapi.yml + status.signzy.com (live 2026-07-17) +
+  docs.signzy.com
+notes: >-
+  Signzy versions its verification marketplace in the URI path (/api/v3/...).
+  A live, hosted status page is published at status.signzy.com
+  ("Signzy - Status", components Operational, uptime history). No public
+  written deprecation/sunset policy or RFC 8594 Sunset/Deprecation header
+  support was found in the developer docs, and no OpenAPI operations are marked
+  deprecated.
+versioning:
+  scheme: uri-path
+  current: v3
+  docs: https://docs.signzy.com
+status_page: https://status.signzy.com
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No published deprecation/sunset policy found.
+sla:
+  url: null
+  note: SLA/uptime targets negotiated per enterprise agreement; not public.
+deprecated_operations: []
