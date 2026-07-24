@@ -1,0 +1,85 @@
+openapi: 3.0.3
+info:
+  title: Signzy Verification Authentication API
+  description: 'Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.'
+  termsOfService: https://www.signzy.com/terms-of-service/
+  contact:
+    name: Signzy Support
+    url: https://docs.signzy.com
+  version: v3
+servers:
+- url: https://api.signzy.app
+  description: Production
+- url: https://api-preproduction.signzy.app
+  description: Preproduction / sandbox
+security:
+- accessToken: []
+tags:
+- name: Authentication
+paths:
+  /api/customers/login:
+    post:
+      operationId: login
+      tags:
+      - Authentication
+      summary: Obtain an access token
+      description: Exchange a username and API key (password) for a short-lived access token. The returned `id` field is the access token passed in the `Authorization` header on all subsequent requests.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Access token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid credentials
+  /api/customers/logout:
+    post:
+      operationId: logout
+      tags:
+      - Authentication
+      summary: Invalidate the current access token
+      responses:
+        '204':
+          description: Token invalidated
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+          description: Account username.
+        password:
+          type: string
+          description: Account API key.
+    LoginResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Access token used in the Authorization header.
+        ttl:
+          type: integer
+          description: Token time-to-live in seconds.
+        created:
+          type: string
+          format: date-time
+        userId:
+          type: string
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Access token obtained from POST /api/customers/login, sent as the raw token value in the Authorization header (no "Bearer" prefix).

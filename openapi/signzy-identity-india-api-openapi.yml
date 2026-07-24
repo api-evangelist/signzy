@@ -1,0 +1,107 @@
+openapi: 3.0.3
+info:
+  title: Signzy Verification Authentication Identity (India) API
+  description: 'Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.'
+  termsOfService: https://www.signzy.com/terms-of-service/
+  contact:
+    name: Signzy Support
+    url: https://docs.signzy.com
+  version: v3
+servers:
+- url: https://api.signzy.app
+  description: Production
+- url: https://api-preproduction.signzy.app
+  description: Preproduction / sandbox
+security:
+- accessToken: []
+tags:
+- name: Identity (India)
+paths:
+  /api/v3/aadhaar/verify:
+    post:
+      operationId: verifyAadhaar
+      tags:
+      - Identity (India)
+      summary: Verify an Indian Aadhaar number
+      description: Validate an Aadhaar (India national ID) number and return the masked demographic details on record. India-specific verification surface.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AadhaarRequest'
+      responses:
+        '200':
+          description: Verification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResult'
+        '401':
+          description: Missing or invalid access token
+        '422':
+          description: Validation error
+  /api/v3/pan/simple:
+    post:
+      operationId: verifyPan
+      tags:
+      - Identity (India)
+      summary: Verify an Indian PAN (Permanent Account Number)
+      description: Validate a PAN card number against the income-tax database and return name and status. India-specific tax-identity verification surface.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PanRequest'
+      responses:
+        '200':
+          description: Verification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResult'
+        '401':
+          description: Missing or invalid access token
+        '422':
+          description: Validation error
+components:
+  schemas:
+    PanRequest:
+      type: object
+      required:
+      - panNumber
+      properties:
+        panNumber:
+          type: string
+          description: 10-character PAN.
+        consent:
+          type: string
+          description: Explicit end-user consent flag (Y/N).
+    AadhaarRequest:
+      type: object
+      required:
+      - aadhaarNumber
+      properties:
+        aadhaarNumber:
+          type: string
+          description: 12-digit Aadhaar number.
+        consent:
+          type: string
+          description: Explicit end-user consent flag (Y/N).
+    VerificationResult:
+      type: object
+      properties:
+        result:
+          type: object
+          description: Verification payload; shape varies by endpoint.
+        status:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Access token obtained from POST /api/customers/login, sent as the raw token value in the Authorization header (no "Bearer" prefix).

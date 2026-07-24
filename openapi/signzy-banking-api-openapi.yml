@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: Signzy Verification Authentication Banking API
+  description: 'Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.'
+  termsOfService: https://www.signzy.com/terms-of-service/
+  contact:
+    name: Signzy Support
+    url: https://docs.signzy.com
+  version: v3
+servers:
+- url: https://api.signzy.app
+  description: Production
+- url: https://api-preproduction.signzy.app
+  description: Preproduction / sandbox
+security:
+- accessToken: []
+tags:
+- name: Banking
+paths:
+  /api/v3/underwriting/get-passbook-otp:
+    post:
+      operationId: getPassbookOtp
+      tags:
+      - Banking
+      summary: Trigger a bank passbook OTP
+      description: Initiate an OTP as part of a bank passbook / underwriting verification workflow.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PassbookOtpRequest'
+      responses:
+        '200':
+          description: OTP triggered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResult'
+        '401':
+          description: Missing or invalid access token
+        '422':
+          description: Validation error
+components:
+  schemas:
+    PassbookOtpRequest:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        ifsc:
+          type: string
+        mobileNumber:
+          type: string
+    VerificationResult:
+      type: object
+      properties:
+        result:
+          type: object
+          description: Verification payload; shape varies by endpoint.
+        status:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Access token obtained from POST /api/customers/login, sent as the raw token value in the Authorization header (no "Bearer" prefix).

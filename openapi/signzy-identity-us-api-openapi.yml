@@ -1,0 +1,91 @@
+openapi: 3.0.3
+info:
+  title: Signzy Verification Authentication Identity (US) API
+  description: 'Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.'
+  termsOfService: https://www.signzy.com/terms-of-service/
+  contact:
+    name: Signzy Support
+    url: https://docs.signzy.com
+  version: v3
+servers:
+- url: https://api.signzy.app
+  description: Production
+- url: https://api-preproduction.signzy.app
+  description: Preproduction / sandbox
+security:
+- accessToken: []
+tags:
+- name: Identity (US)
+paths:
+  /api/v3/us/document-intelligence-advance:
+    post:
+      operationId: usDocumentIntelligenceAdvance
+      tags:
+      - Identity (US)
+      summary: US ID document OCR and authenticity check
+      description: Read and authenticate a US identity document (driver's license, passport) from an image URL, returning OCR-extracted fields, image quality, and authenticity/security checks.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsDocumentRequest'
+      responses:
+        '200':
+          description: Document intelligence result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsDocumentResult'
+        '400':
+          description: Bad request
+        '401':
+          description: Missing or invalid access token
+        '409':
+          description: Conflict
+        '422':
+          description: Validation error
+components:
+  schemas:
+    UsDocumentRequest:
+      type: object
+      required:
+      - country
+      - idType
+      properties:
+        frontUrl:
+          type: string
+          description: URL of the front image (TIFF, JPEG, PNG or single-page PDF).
+        backUrl:
+          type: string
+          description: URL of the back image (TIFF, JPEG, PNG or single-page PDF).
+        country:
+          type: string
+          description: Country of ID issuance.
+        idType:
+          type: string
+          description: Type of document, e.g. "driving license" or "passport".
+    UsDocumentResult:
+      type: object
+      properties:
+        completeStatus:
+          type: object
+          description: Overall status and per-check details.
+        imageQuality:
+          type: object
+        authenticityCheck:
+          type: object
+        extractedFields:
+          type: object
+        predictedIdTypeFront:
+          type: string
+        predictedIdTypeBack:
+          type: string
+        graphicFields:
+          type: object
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Access token obtained from POST /api/customers/login, sent as the raw token value in the Authorization header (no "Bearer" prefix).
