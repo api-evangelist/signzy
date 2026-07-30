@@ -9,7 +9,20 @@ description: Signzy is a global identity verification, KYC, KYB and AML complian
   verification, AML/sanctions/PEP screening, bank verification, Video KYC and
   Aadhaar eSign - behind a single token-authenticated REST API across India, the
   US, the Middle East and APAC.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/signzy.png
 tags:
 - Identity Verification
 - KYC
@@ -22,179 +35,129 @@ created: '2026-07-17'
 modified: '2026-07-17'
 specificationVersion: '0.19'
 apis:
-- aid: signzy:signzy-identity-verification-api
-  name: Signzy Identity Verification API
-  tags:
-  - Identity Verification
-  - OCR
-  - Liveness
-  - Face Match
-  - Deepfake
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: signzy:signzy-authentication-api
+  name: Signzy Authentication API
+  description: The Authentication API from Signzy — 2 operation(s) for authentication.
   humanURL: https://www.signzy.com/use-cases/identity-verification-api/
   baseURL: https://api.signzy.app
-  properties:
-  - url: https://docs.signzy.com
-    type: Documentation
-  - url: https://www.signzy.com/us/use-cases/identity-verification-api/
-    type: APIReference
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  - url: collections/signzy.postman_collection.json
-    type: PostmanCollection
-  description: Global document OCR, liveness detection, face match and deepfake /
-    synthetic-fraud checks that auto-read identity documents (driver's license,
-    passport, national IDs) and verify the presented person in real time.
-- aid: signzy:signzy-aadhaar-verification-api
-  name: Signzy Aadhaar Verification API
   tags:
-  - Aadhaar
-  - India
-  - Identity
-  - KYC
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.signzy.com/api-marketplace/aadhaar-verification
-  baseURL: https://api.signzy.app
+  - Authentication
   properties:
-  - url: https://docs.signzy.com/api-marketplace/aadhaar-verification
-    type: Documentation
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  - url: collections/signzy.postman_collection.json
-    type: PostmanCollection
-  description: Verifies an Indian Aadhaar (national ID) number with explicit consent
-    and returns the masked demographic details on record via POST /api/v3/aadhaar/verify.
-- aid: signzy:signzy-pan-verification-api
-  name: Signzy PAN Verification API
+  - type: OpenAPI
+    url: openapi/signzy-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://docs.signzy.com
+  - type: APIReference
+    url: https://www.signzy.com/us/use-cases/identity-verification-api/
+  - type: PostmanCollection
+    url: collections/signzy.postman_collection.json
+  - type: Documentation
+    url: https://docs.signzy.com/api-marketplace/aadhaar-verification
+  - type: Documentation
+    url: https://docs.signzy.com/us-apis/id-intelligence-advance
+  - type: APIReference
+    url: https://www.signzy.com/us/verification-api-marketplace/
+  - type: Documentation
+    url: https://www.signzy.com/use-cases/kyc-aml-screening
+  - type: Documentation
+    url: https://www.signzy.com/fintech-apis/account-aggregator-api
+  - type: Documentation
+    url: https://docs.signzy.com/vkyc/login-api
+  - type: Documentation
+    url: https://docs.signzy.com/contract360
+- aid: signzy:signzy-banking-api
+  name: Signzy Banking API
+  description: The Banking API from Signzy — 1 operation(s) for banking.
+  humanURL: https://www.signzy.com/use-cases/identity-verification-api/
+  baseURL: https://api.signzy.app
   tags:
-  - PAN
-  - India
-  - Tax Identity
-  - KYC
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.signzy.com/api-marketplace/pan-verification
-  baseURL: https://api.signzy.app
+  - Banking
   properties:
-  - url: https://docs.signzy.com
-    type: Documentation
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  - url: collections/signzy.postman_collection.json
-    type: PostmanCollection
-  description: Validates an Indian PAN (Permanent Account Number) against the
-    income-tax database and returns name and status via POST /api/v3/pan/simple.
-- aid: signzy:signzy-us-document-intelligence-api
-  name: Signzy US Document Intelligence API
+  - type: OpenAPI
+    url: openapi/signzy-banking-api-openapi.yml
+  - type: Documentation
+    url: https://docs.signzy.com
+  - type: APIReference
+    url: https://www.signzy.com/us/use-cases/identity-verification-api/
+  - type: PostmanCollection
+    url: collections/signzy.postman_collection.json
+  - type: Documentation
+    url: https://docs.signzy.com/api-marketplace/aadhaar-verification
+  - type: Documentation
+    url: https://docs.signzy.com/us-apis/id-intelligence-advance
+  - type: APIReference
+    url: https://www.signzy.com/us/verification-api-marketplace/
+  - type: Documentation
+    url: https://www.signzy.com/use-cases/kyc-aml-screening
+  - type: Documentation
+    url: https://www.signzy.com/fintech-apis/account-aggregator-api
+  - type: Documentation
+    url: https://docs.signzy.com/vkyc/login-api
+  - type: Documentation
+    url: https://docs.signzy.com/contract360
+- aid: signzy:signzy-identity-india-api
+  name: Signzy Identity (India) API
+  description: The Identity (India) API from Signzy — 2 operation(s) for identity (india).
+  humanURL: https://www.signzy.com/use-cases/identity-verification-api/
+  baseURL: https://api.signzy.app
   tags:
-  - US
-  - Document OCR
-  - Authenticity
-  - Identity
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.signzy.com/us-apis/id-intelligence-advance
-  baseURL: https://api.signzy.app
+  - Identity (India)
   properties:
-  - url: https://docs.signzy.com/us-apis/id-intelligence-advance
-    type: Documentation
-  - url: https://www.signzy.com/us/verification-api-marketplace/
-    type: APIReference
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  - url: collections/signzy.postman_collection.json
-    type: PostmanCollection
-  description: Reads and authenticates US identity documents (driver's license,
-    passport) from an image URL, returning OCR-extracted fields, image quality and
-    authenticity checks via POST /api/v3/us/document-intelligence-advance.
-- aid: signzy:signzy-business-verification-api
-  name: Signzy Business Verification (KYB) API
+  - type: OpenAPI
+    url: openapi/signzy-identity-india-api-openapi.yml
+  - type: Documentation
+    url: https://docs.signzy.com
+  - type: APIReference
+    url: https://www.signzy.com/us/use-cases/identity-verification-api/
+  - type: PostmanCollection
+    url: collections/signzy.postman_collection.json
+  - type: Documentation
+    url: https://docs.signzy.com/api-marketplace/aadhaar-verification
+  - type: Documentation
+    url: https://docs.signzy.com/us-apis/id-intelligence-advance
+  - type: APIReference
+    url: https://www.signzy.com/us/verification-api-marketplace/
+  - type: Documentation
+    url: https://www.signzy.com/use-cases/kyc-aml-screening
+  - type: Documentation
+    url: https://www.signzy.com/fintech-apis/account-aggregator-api
+  - type: Documentation
+    url: https://docs.signzy.com/vkyc/login-api
+  - type: Documentation
+    url: https://docs.signzy.com/contract360
+- aid: signzy:signzy-identity-us-api
+  name: Signzy Identity (US) API
+  description: The Identity (US) API from Signzy — 1 operation(s) for identity (us).
+  humanURL: https://www.signzy.com/use-cases/identity-verification-api/
+  baseURL: https://api.signzy.app
   tags:
-  - KYB
-  - Business Verification
-  - EIN
-  - UBO
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.signzy.com/us/verification-api-marketplace/
-  baseURL: https://api.signzy.app
+  - Identity (US)
   properties:
-  - url: https://docs.signzy.com
-    type: Documentation
-  - url: https://www.signzy.com/us/verification-api-marketplace/
-    type: APIReference
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  description: Know-Your-Business verification - EIN / SOS business lookups, UBO
-    checks, bankruptcy and credit-underwriting reports across US states and Indian
-    entities.
-- aid: signzy:signzy-aml-screening-api
-  name: Signzy AML & Sanctions Screening API
-  tags:
-  - AML
-  - Sanctions
-  - PEP
-  - Adverse Media
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.signzy.com/use-cases/kyc-aml-screening
-  baseURL: https://api.signzy.app
-  properties:
-  - url: https://www.signzy.com/use-cases/kyc-aml-screening
-    type: Documentation
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  description: Sanction-list, Politically Exposed Person (PEP) and adverse-media
-    screening plus transaction monitoring, expanded through the 2024 Difenz
-    acquisition.
-- aid: signzy:signzy-bank-verification-api
-  name: Signzy Bank Verification & Account Aggregator API
-  tags:
-  - Bank Verification
-  - Account Aggregator
-  - Penny Drop
-  - India
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.signzy.com/fintech-apis/account-aggregator-api
-  baseURL: https://api.signzy.app
-  properties:
-  - url: https://www.signzy.com/fintech-apis/account-aggregator-api
-    type: Documentation
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  description: Bank account verification, name match, balance and transaction
-    checks, and India Account Aggregator consent-based data pulls, including
-    passbook OTP flows via POST /api/v3/underwriting/get-passbook-otp.
-- aid: signzy:signzy-video-kyc-api
-  name: Signzy Video KYC API
-  tags:
-  - Video KYC
-  - Onboarding
-  - RBI
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.signzy.com/vkyc/login-api
-  baseURL: https://api.signzy.app
-  properties:
-  - url: https://docs.signzy.com/vkyc/login-api
-    type: Documentation
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  description: RBI-compliant assisted Video KYC onboarding with agent-led liveness,
-    document capture and audit trails for regulated customer onboarding.
-- aid: signzy:signzy-esign-contracting-api
-  name: Signzy eSign & Digital Contracting API
-  tags:
-  - eSign
-  - Aadhaar eSign
-  - eStamping
-  - Contracts
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.signzy.com/contract360
-  baseURL: https://api.signzy.app
-  properties:
-  - url: https://docs.signzy.com/contract360
-    type: Documentation
-  - url: openapi/signzy-openapi.yml
-    type: OpenAPI
-  description: Paperless Aadhaar eSign, eStamping and Contract360 lifecycle
-    management for legally binding digital agreements.
+  - type: OpenAPI
+    url: openapi/signzy-identity-us-api-openapi.yml
+  - type: Documentation
+    url: https://docs.signzy.com
+  - type: APIReference
+    url: https://www.signzy.com/us/use-cases/identity-verification-api/
+  - type: PostmanCollection
+    url: collections/signzy.postman_collection.json
+  - type: Documentation
+    url: https://docs.signzy.com/api-marketplace/aadhaar-verification
+  - type: Documentation
+    url: https://docs.signzy.com/us-apis/id-intelligence-advance
+  - type: APIReference
+    url: https://www.signzy.com/us/verification-api-marketplace/
+  - type: Documentation
+    url: https://www.signzy.com/use-cases/kyc-aml-screening
+  - type: Documentation
+    url: https://www.signzy.com/fintech-apis/account-aggregator-api
+  - type: Documentation
+    url: https://docs.signzy.com/vkyc/login-api
+  - type: Documentation
+    url: https://docs.signzy.com/contract360
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/signzy/overview
 - type: AgenticAccess
   url: agentic-access/signzy-agentic-access.yml
 - type: TrustCenter
