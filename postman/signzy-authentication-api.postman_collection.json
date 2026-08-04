@@ -1,0 +1,292 @@
+{
+  "info": {
+    "_postman_id": "2e8e0afb-403a-4b9e-bda1-812a67f4a4f8",
+    "name": "Signzy Verification Authentication API",
+    "description": "Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.\n\nContact Support:\n Name: Signzy Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:54:26.000Z",
+    "updatedAt": "2026-07-28T02:54:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2e8e0afb-403a-4b9e-bda1-812a67f4a4f8"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "customers",
+          "item": [
+            {
+              "name": "login",
+              "item": [
+                {
+                  "name": "Obtain an access token",
+                  "id": "d79230f1-7739-4447-aa5d-b914f3481c30",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/customers/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "customers",
+                        "login"
+                      ]
+                    },
+                    "description": "Exchange a username and API key (password) for a short-lived access token. The returned `id` field is the access token passed in the `Authorization` header on all subsequent requests."
+                  },
+                  "response": [
+                    {
+                      "id": "a741ba44-4b30-420d-b90f-720162b9875e",
+                      "name": "Access token issued",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/customers/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "customers",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"ttl\": \"<integer>\",\n  \"created\": \"<dateTime>\",\n  \"userId\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:54:27.000Z",
+                      "updatedAt": "2026-07-28T02:54:27.000Z",
+                      "uid": "35240-a741ba44-4b30-420d-b90f-720162b9875e"
+                    },
+                    {
+                      "id": "f6d1fad4-acf1-48f4-bc64-3c905b6c0b6e",
+                      "name": "Invalid credentials",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/customers/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "customers",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:54:27.000Z",
+                      "updatedAt": "2026-07-28T02:54:27.000Z",
+                      "uid": "35240-f6d1fad4-acf1-48f4-bc64-3c905b6c0b6e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:54:27.000Z",
+                  "updatedAt": "2026-07-28T02:54:27.000Z",
+                  "uid": "35240-d79230f1-7739-4447-aa5d-b914f3481c30"
+                }
+              ],
+              "id": "31d8ec43-3fc0-438d-bac5-d0f4f44a9586",
+              "createdAt": "2026-07-28T02:54:27.000Z",
+              "updatedAt": "2026-07-28T02:54:27.000Z",
+              "uid": "35240-31d8ec43-3fc0-438d-bac5-d0f4f44a9586"
+            },
+            {
+              "name": "logout",
+              "item": [
+                {
+                  "name": "Invalidate the current access token",
+                  "id": "23f2849b-1c28-4245-90a9-079be6330715",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/customers/logout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "customers",
+                        "logout"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5208ca5e-ab42-4e10-aa96-23947db92d5e",
+                      "name": "Token invalidated",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/customers/logout",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "customers",
+                            "logout"
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:54:27.000Z",
+                      "updatedAt": "2026-07-28T02:54:27.000Z",
+                      "uid": "35240-5208ca5e-ab42-4e10-aa96-23947db92d5e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:54:27.000Z",
+                  "updatedAt": "2026-07-28T02:54:27.000Z",
+                  "uid": "35240-23f2849b-1c28-4245-90a9-079be6330715"
+                }
+              ],
+              "id": "1216fedd-3d6a-4c57-bc8f-a1404a8d89a9",
+              "createdAt": "2026-07-28T02:54:27.000Z",
+              "updatedAt": "2026-07-28T02:54:27.000Z",
+              "uid": "35240-1216fedd-3d6a-4c57-bc8f-a1404a8d89a9"
+            }
+          ],
+          "id": "f343e60a-30e8-44b4-832c-6f82a089e2ca",
+          "createdAt": "2026-07-28T02:54:27.000Z",
+          "updatedAt": "2026-07-28T02:54:27.000Z",
+          "uid": "35240-f343e60a-30e8-44b4-832c-6f82a089e2ca"
+        }
+      ],
+      "id": "cb4ce2b1-4f83-4585-954f-6b3edaf96a85",
+      "createdAt": "2026-07-28T02:54:27.000Z",
+      "updatedAt": "2026-07-28T02:54:27.000Z",
+      "uid": "35240-cb4ce2b1-4f83-4585-954f-6b3edaf96a85"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.signzy.app"
+    }
+  ]
+}

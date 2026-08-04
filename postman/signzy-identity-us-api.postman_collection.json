@@ -1,0 +1,383 @@
+{
+  "info": {
+    "_postman_id": "4570ecbb-606f-4327-8f1a-1a234d3f84d9",
+    "name": "Signzy Verification Authentication Identity (US) API",
+    "description": "Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.\n\nContact Support:\n Name: Signzy Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:54:38.000Z",
+    "updatedAt": "2026-07-28T02:54:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4570ecbb-606f-4327-8f1a-1a234d3f84d9"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v3",
+          "item": [
+            {
+              "name": "us",
+              "item": [
+                {
+                  "name": "document-intelligence-advance",
+                  "item": [
+                    {
+                      "name": "US ID document OCR and authenticity check",
+                      "id": "4a60a15a-b35e-460e-9c43-54c41003c965",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"country\": \"<string>\",\n  \"idType\": \"<string>\",\n  \"frontUrl\": \"<string>\",\n  \"backUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v3/us/document-intelligence-advance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v3",
+                            "us",
+                            "document-intelligence-advance"
+                          ]
+                        },
+                        "description": "Read and authenticate a US identity document (driver's license, passport) from an image URL, returning OCR-extracted fields, image quality, and authenticity/security checks."
+                      },
+                      "response": [
+                        {
+                          "id": "d84a293f-b5ba-4f05-abd1-8da266f2f5b1",
+                          "name": "Document intelligence result",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"country\": \"<string>\",\n  \"idType\": \"<string>\",\n  \"frontUrl\": \"<string>\",\n  \"backUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/us/document-intelligence-advance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "us",
+                                "document-intelligence-advance"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"completeStatus\": {},\n  \"imageQuality\": {},\n  \"authenticityCheck\": {},\n  \"extractedFields\": {},\n  \"predictedIdTypeFront\": \"<string>\",\n  \"predictedIdTypeBack\": \"<string>\",\n  \"graphicFields\": {}\n}",
+                          "createdAt": "2026-07-28T02:54:39.000Z",
+                          "updatedAt": "2026-07-28T02:54:39.000Z",
+                          "uid": "35240-d84a293f-b5ba-4f05-abd1-8da266f2f5b1"
+                        },
+                        {
+                          "id": "81862670-bd05-4c38-9033-4da0396e603d",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"country\": \"<string>\",\n  \"idType\": \"<string>\",\n  \"frontUrl\": \"<string>\",\n  \"backUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/us/document-intelligence-advance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "us",
+                                "document-intelligence-advance"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:39.000Z",
+                          "updatedAt": "2026-07-28T02:54:39.000Z",
+                          "uid": "35240-81862670-bd05-4c38-9033-4da0396e603d"
+                        },
+                        {
+                          "id": "500cf2bd-73c4-4f39-b0c9-79838fccff23",
+                          "name": "Missing or invalid access token",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"country\": \"<string>\",\n  \"idType\": \"<string>\",\n  \"frontUrl\": \"<string>\",\n  \"backUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/us/document-intelligence-advance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "us",
+                                "document-intelligence-advance"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:39.000Z",
+                          "updatedAt": "2026-07-28T02:54:39.000Z",
+                          "uid": "35240-500cf2bd-73c4-4f39-b0c9-79838fccff23"
+                        },
+                        {
+                          "id": "38d2fad4-e222-4ea5-94f8-811447869800",
+                          "name": "Conflict",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"country\": \"<string>\",\n  \"idType\": \"<string>\",\n  \"frontUrl\": \"<string>\",\n  \"backUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/us/document-intelligence-advance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "us",
+                                "document-intelligence-advance"
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:39.000Z",
+                          "updatedAt": "2026-07-28T02:54:39.000Z",
+                          "uid": "35240-38d2fad4-e222-4ea5-94f8-811447869800"
+                        },
+                        {
+                          "id": "1879a259-2c62-43ae-9428-a8c3326b9b8d",
+                          "name": "Validation error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"country\": \"<string>\",\n  \"idType\": \"<string>\",\n  \"frontUrl\": \"<string>\",\n  \"backUrl\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/us/document-intelligence-advance",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "us",
+                                "document-intelligence-advance"
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:39.000Z",
+                          "updatedAt": "2026-07-28T02:54:39.000Z",
+                          "uid": "35240-1879a259-2c62-43ae-9428-a8c3326b9b8d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:54:39.000Z",
+                      "updatedAt": "2026-07-28T02:54:39.000Z",
+                      "uid": "35240-4a60a15a-b35e-460e-9c43-54c41003c965"
+                    }
+                  ],
+                  "id": "70bab9cb-2d0a-4225-baee-15d9b99dd854",
+                  "createdAt": "2026-07-28T02:54:39.000Z",
+                  "updatedAt": "2026-07-28T02:54:39.000Z",
+                  "uid": "35240-70bab9cb-2d0a-4225-baee-15d9b99dd854"
+                }
+              ],
+              "id": "476be004-aea5-4b35-b0bb-4cdd08745904",
+              "createdAt": "2026-07-28T02:54:39.000Z",
+              "updatedAt": "2026-07-28T02:54:39.000Z",
+              "uid": "35240-476be004-aea5-4b35-b0bb-4cdd08745904"
+            }
+          ],
+          "id": "ae708c9d-7def-4eff-81b9-cce8d14c457c",
+          "createdAt": "2026-07-28T02:54:39.000Z",
+          "updatedAt": "2026-07-28T02:54:39.000Z",
+          "uid": "35240-ae708c9d-7def-4eff-81b9-cce8d14c457c"
+        }
+      ],
+      "id": "8610fbc1-b555-4ecb-89ee-95cfc6da45be",
+      "createdAt": "2026-07-28T02:54:39.000Z",
+      "updatedAt": "2026-07-28T02:54:39.000Z",
+      "uid": "35240-8610fbc1-b555-4ecb-89ee-95cfc6da45be"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.signzy.app"
+    }
+  ]
+}

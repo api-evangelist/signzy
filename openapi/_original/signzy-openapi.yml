@@ -1,0 +1,291 @@
+# Provenance: modeled-from-docs (2026-07-17).
+# Signzy does not publish a single downloadable first-party OpenAPI document; the
+# public developer docs at https://docs.signzy.com are per-endpoint (GitBook-style).
+# This OpenAPI 3.0 document was MODELED from those documented endpoints, request
+# and response shapes, hosts, and the LoopBack-style login/token auth flow.
+# Confirmed live: api.signzy.app returns HTTP 401 at root (auth required) on probe
+# 2026-07-17. Endpoint paths below are transcribed from the public docs:
+#   /api/customers/login, /api/v3/aadhaar/verify, /api/v3/pan/simple,
+#   /api/v3/us/document-intelligence-advance, /api/v3/underwriting/get-passbook-otp.
+openapi: 3.0.3
+info:
+  title: Signzy Verification API
+  description: >-
+    Signzy is a global identity verification, KYC, KYB and AML compliance
+    platform whose API marketplace exposes 240+ verification building blocks
+    across India, the US, the Middle East and APAC. Authentication is a
+    LoopBack-style flow: POST username + API key to /api/customers/login to
+    receive an access token, then pass that token in the `Authorization` header
+    (raw token value, NOT a Bearer prefix) on every subsequent call. This
+    document models a representative subset of the marketplace; the full catalog
+    is documented at https://docs.signzy.com.
+  termsOfService: https://www.signzy.com/terms-of-service/
+  contact:
+    name: Signzy Support
+    url: https://docs.signzy.com
+  version: v3
+servers:
+  - url: https://api.signzy.app
+    description: Production
+  - url: https://api-preproduction.signzy.app
+    description: Preproduction / sandbox
+security:
+  - accessToken: []
+paths:
+  /api/customers/login:
+    post:
+      operationId: login
+      tags:
+        - Authentication
+      summary: Obtain an access token
+      description: >-
+        Exchange a username and API key (password) for a short-lived access
+        token. The returned `id` field is the access token passed in the
+        `Authorization` header on all subsequent requests.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Access token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid credentials
+  /api/customers/logout:
+    post:
+      operationId: logout
+      tags:
+        - Authentication
+      summary: Invalidate the current access token
+      responses:
+        '204':
+          description: Token invalidated
+  /api/v3/aadhaar/verify:
+    post:
+      operationId: verifyAadhaar
+      tags:
+        - Identity (India)
+      summary: Verify an Indian Aadhaar number
+      description: >-
+        Validate an Aadhaar (India national ID) number and return the masked
+        demographic details on record. India-specific verification surface.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AadhaarRequest'
+      responses:
+        '200':
+          description: Verification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResult'
+        '401':
+          description: Missing or invalid access token
+        '422':
+          description: Validation error
+  /api/v3/pan/simple:
+    post:
+      operationId: verifyPan
+      tags:
+        - Identity (India)
+      summary: Verify an Indian PAN (Permanent Account Number)
+      description: >-
+        Validate a PAN card number against the income-tax database and return
+        name and status. India-specific tax-identity verification surface.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PanRequest'
+      responses:
+        '200':
+          description: Verification result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResult'
+        '401':
+          description: Missing or invalid access token
+        '422':
+          description: Validation error
+  /api/v3/us/document-intelligence-advance:
+    post:
+      operationId: usDocumentIntelligenceAdvance
+      tags:
+        - Identity (US)
+      summary: US ID document OCR and authenticity check
+      description: >-
+        Read and authenticate a US identity document (driver's license,
+        passport) from an image URL, returning OCR-extracted fields, image
+        quality, and authenticity/security checks.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UsDocumentRequest'
+      responses:
+        '200':
+          description: Document intelligence result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UsDocumentResult'
+        '400':
+          description: Bad request
+        '401':
+          description: Missing or invalid access token
+        '409':
+          description: Conflict
+        '422':
+          description: Validation error
+  /api/v3/underwriting/get-passbook-otp:
+    post:
+      operationId: getPassbookOtp
+      tags:
+        - Banking
+      summary: Trigger a bank passbook OTP
+      description: >-
+        Initiate an OTP as part of a bank passbook / underwriting verification
+        workflow.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PassbookOtpRequest'
+      responses:
+        '200':
+          description: OTP triggered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerificationResult'
+        '401':
+          description: Missing or invalid access token
+        '422':
+          description: Validation error
+components:
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Access token obtained from POST /api/customers/login, sent as the raw
+        token value in the Authorization header (no "Bearer" prefix).
+  schemas:
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: Account username.
+        password:
+          type: string
+          description: Account API key.
+    LoginResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Access token used in the Authorization header.
+        ttl:
+          type: integer
+          description: Token time-to-live in seconds.
+        created:
+          type: string
+          format: date-time
+        userId:
+          type: string
+    AadhaarRequest:
+      type: object
+      required:
+        - aadhaarNumber
+      properties:
+        aadhaarNumber:
+          type: string
+          description: 12-digit Aadhaar number.
+        consent:
+          type: string
+          description: Explicit end-user consent flag (Y/N).
+    PanRequest:
+      type: object
+      required:
+        - panNumber
+      properties:
+        panNumber:
+          type: string
+          description: 10-character PAN.
+        consent:
+          type: string
+          description: Explicit end-user consent flag (Y/N).
+    UsDocumentRequest:
+      type: object
+      required:
+        - country
+        - idType
+      properties:
+        frontUrl:
+          type: string
+          description: URL of the front image (TIFF, JPEG, PNG or single-page PDF).
+        backUrl:
+          type: string
+          description: URL of the back image (TIFF, JPEG, PNG or single-page PDF).
+        country:
+          type: string
+          description: Country of ID issuance.
+        idType:
+          type: string
+          description: Type of document, e.g. "driving license" or "passport".
+    UsDocumentResult:
+      type: object
+      properties:
+        completeStatus:
+          type: object
+          description: Overall status and per-check details.
+        imageQuality:
+          type: object
+        authenticityCheck:
+          type: object
+        extractedFields:
+          type: object
+        predictedIdTypeFront:
+          type: string
+        predictedIdTypeBack:
+          type: string
+        graphicFields:
+          type: object
+    PassbookOtpRequest:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        ifsc:
+          type: string
+        mobileNumber:
+          type: string
+    VerificationResult:
+      type: object
+      properties:
+        result:
+          type: object
+          description: Verification payload; shape varies by endpoint.
+        status:
+          type: string
+        message:
+          type: string

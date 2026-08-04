@@ -1,0 +1,508 @@
+{
+  "info": {
+    "_postman_id": "39a05d01-8004-4631-b59f-9b3d47c53486",
+    "name": "Signzy Verification Authentication Identity (India) API",
+    "description": "Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.\n\nContact Support:\n Name: Signzy Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:54:37.000Z",
+    "updatedAt": "2026-07-28T02:54:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-39a05d01-8004-4631-b59f-9b3d47c53486"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "v3",
+          "item": [
+            {
+              "name": "aadhaar",
+              "item": [
+                {
+                  "name": "verify",
+                  "item": [
+                    {
+                      "name": "Verify an Indian Aadhaar number",
+                      "id": "b5a57e90-1269-4208-a5c4-67beefd36c8f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"aadhaarNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v3/aadhaar/verify",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v3",
+                            "aadhaar",
+                            "verify"
+                          ]
+                        },
+                        "description": "Validate an Aadhaar (India national ID) number and return the masked demographic details on record. India-specific verification surface."
+                      },
+                      "response": [
+                        {
+                          "id": "320dac2f-d622-416b-94af-9f7fb1f6c4e0",
+                          "name": "Verification result",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"aadhaarNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/aadhaar/verify",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "aadhaar",
+                                "verify"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {},\n  \"status\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:54:38.000Z",
+                          "updatedAt": "2026-07-28T02:54:38.000Z",
+                          "uid": "35240-320dac2f-d622-416b-94af-9f7fb1f6c4e0"
+                        },
+                        {
+                          "id": "a22fa986-7791-46d6-bfa3-db28ec1c4d3f",
+                          "name": "Missing or invalid access token",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"aadhaarNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/aadhaar/verify",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "aadhaar",
+                                "verify"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:38.000Z",
+                          "updatedAt": "2026-07-28T02:54:38.000Z",
+                          "uid": "35240-a22fa986-7791-46d6-bfa3-db28ec1c4d3f"
+                        },
+                        {
+                          "id": "36bf1f32-785e-4f44-8f2a-6780424576c5",
+                          "name": "Validation error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"aadhaarNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/aadhaar/verify",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "aadhaar",
+                                "verify"
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:38.000Z",
+                          "updatedAt": "2026-07-28T02:54:38.000Z",
+                          "uid": "35240-36bf1f32-785e-4f44-8f2a-6780424576c5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:54:38.000Z",
+                      "updatedAt": "2026-07-28T02:54:38.000Z",
+                      "uid": "35240-b5a57e90-1269-4208-a5c4-67beefd36c8f"
+                    }
+                  ],
+                  "id": "e9c6df43-9953-4f2b-8d3e-5e16845184b3",
+                  "createdAt": "2026-07-28T02:54:38.000Z",
+                  "updatedAt": "2026-07-28T02:54:38.000Z",
+                  "uid": "35240-e9c6df43-9953-4f2b-8d3e-5e16845184b3"
+                }
+              ],
+              "id": "9946b70d-2f42-4700-a776-76f01cd4d7f8",
+              "createdAt": "2026-07-28T02:54:38.000Z",
+              "updatedAt": "2026-07-28T02:54:38.000Z",
+              "uid": "35240-9946b70d-2f42-4700-a776-76f01cd4d7f8"
+            },
+            {
+              "name": "pan",
+              "item": [
+                {
+                  "name": "simple",
+                  "item": [
+                    {
+                      "name": "Verify an Indian PAN (Permanent Account Number)",
+                      "id": "fc6d26c7-a9fc-4780-9bf5-c16fbd5a499f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"panNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v3/pan/simple",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v3",
+                            "pan",
+                            "simple"
+                          ]
+                        },
+                        "description": "Validate a PAN card number against the income-tax database and return name and status. India-specific tax-identity verification surface."
+                      },
+                      "response": [
+                        {
+                          "id": "d20b160e-6cc3-4185-b925-ee472775bee7",
+                          "name": "Verification result",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"panNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/pan/simple",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "pan",
+                                "simple"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {},\n  \"status\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:54:38.000Z",
+                          "updatedAt": "2026-07-28T02:54:38.000Z",
+                          "uid": "35240-d20b160e-6cc3-4185-b925-ee472775bee7"
+                        },
+                        {
+                          "id": "fde7611c-8986-414d-a518-a95edb4920e1",
+                          "name": "Missing or invalid access token",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"panNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/pan/simple",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "pan",
+                                "simple"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:38.000Z",
+                          "updatedAt": "2026-07-28T02:54:38.000Z",
+                          "uid": "35240-fde7611c-8986-414d-a518-a95edb4920e1"
+                        },
+                        {
+                          "id": "46e55297-f83c-45f5-be3e-430f347de9a6",
+                          "name": "Validation error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "Authorization",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"panNumber\": \"<string>\",\n  \"consent\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v3/pan/simple",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v3",
+                                "pan",
+                                "simple"
+                              ]
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:54:38.000Z",
+                          "updatedAt": "2026-07-28T02:54:38.000Z",
+                          "uid": "35240-46e55297-f83c-45f5-be3e-430f347de9a6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:54:38.000Z",
+                      "updatedAt": "2026-07-28T02:54:38.000Z",
+                      "uid": "35240-fc6d26c7-a9fc-4780-9bf5-c16fbd5a499f"
+                    }
+                  ],
+                  "id": "a5cedb6b-58cd-43bc-90c7-becfc64670af",
+                  "createdAt": "2026-07-28T02:54:38.000Z",
+                  "updatedAt": "2026-07-28T02:54:38.000Z",
+                  "uid": "35240-a5cedb6b-58cd-43bc-90c7-becfc64670af"
+                }
+              ],
+              "id": "398f5d1e-fd05-4a1c-abc5-3e4432bd8f81",
+              "createdAt": "2026-07-28T02:54:38.000Z",
+              "updatedAt": "2026-07-28T02:54:38.000Z",
+              "uid": "35240-398f5d1e-fd05-4a1c-abc5-3e4432bd8f81"
+            }
+          ],
+          "id": "a1ab2a19-7a91-49d2-a0bd-3c8c640abddf",
+          "createdAt": "2026-07-28T02:54:38.000Z",
+          "updatedAt": "2026-07-28T02:54:38.000Z",
+          "uid": "35240-a1ab2a19-7a91-49d2-a0bd-3c8c640abddf"
+        }
+      ],
+      "id": "aa415537-2c9a-4863-a302-e7a0caa5dbdd",
+      "createdAt": "2026-07-28T02:54:38.000Z",
+      "updatedAt": "2026-07-28T02:54:38.000Z",
+      "uid": "35240-aa415537-2c9a-4863-a302-e7a0caa5dbdd"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.signzy.app"
+    }
+  ]
+}

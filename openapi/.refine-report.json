@@ -1,0 +1,20 @@
+{
+  "provider": "signzy",
+  "sources": [
+    "signzy-authentication-api-openapi.yml",
+    "signzy-banking-api-openapi.yml",
+    "signzy-identity-india-api-openapi.yml",
+    "signzy-identity-us-api-openapi.yml"
+  ],
+  "outputs": [
+    "signzy-authentication-api-openapi.yml",
+    "signzy-banking-api-openapi.yml",
+    "signzy-identity-india-api-openapi.yml",
+    "signzy-identity-us-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
