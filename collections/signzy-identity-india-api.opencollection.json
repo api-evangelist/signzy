@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Signzy Verification Authentication Identity (India) API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identity (India)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify an Indian Aadhaar number",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.signzy.app/api/v3/aadhaar/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate an Aadhaar (India national ID) number and return the masked demographic details on record. India-specific verification surface."
+        },
+        {
+          "info": {
+            "name": "Verify an Indian PAN (Permanent Account Number)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.signzy.app/api/v3/pan/simple",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate a PAN card number against the income-tax database and return name and status. India-specific tax-identity verification surface."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

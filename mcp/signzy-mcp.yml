@@ -2,14 +2,11 @@ generated: '2026-07-17'
 method: derived
 status: candidate
 source: openapi/signzy-openapi.yml
-notes: >-
-  No official hosted or remote Signzy MCP server was found (docs, npm
-  @modelcontextprotocol, MCP registries all negative on 2026-07-17). This is a
-  DERIVED candidate tool list - one tool per documented OpenAPI operation - as a
-  starting point for exposing the Signzy verification marketplace to agents.
-  These operations touch PII, biometric and financial-identity data; any real
-  MCP deployment should bind a subject, tight token TTLs, and audit (see
-  agentic-access/signzy-agentic-access.yml).
+notes: No official hosted or remote Signzy MCP server was found (docs, npm @modelcontextprotocol, MCP
+  registries all negative on 2026-07-17). This is a DERIVED candidate tool list - one tool per documented
+  OpenAPI operation - as a starting point for exposing the Signzy verification marketplace to agents.
+  These operations touch PII, biometric and financial-identity data; any real MCP deployment should bind
+  a subject, tight token TTLs, and audit (see agentic-access/signzy-agentic-access.yml).
 server:
   name: signzy
   transport: http
@@ -32,3 +29,9 @@ tools:
 - name: get_passbook_otp
   description: Trigger a bank passbook OTP in an underwriting verification workflow.
   source_operation: openapi/signzy-openapi.yml#getPassbookOtp
+deployment:
+  mode: none
+  verified: derived
+  tools: 6
+  checked: '2026-08-12'
+  source: catalog MCP census

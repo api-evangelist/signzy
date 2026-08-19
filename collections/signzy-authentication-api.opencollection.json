@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Signzy Verification Authentication API",
+    "version": "v3"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.signzy.app/api/customers/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Exchange a username and API key (password) for a short-lived access token. The returned `id` field is the access token passed in the `Authorization` header on all subsequent requests."
+        },
+        {
+          "info": {
+            "name": "Invalidate the current access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.signzy.app/api/customers/logout"
+          },
+          "docs": "Invalidate the current access token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
