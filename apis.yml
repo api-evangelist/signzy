@@ -9,6 +9,18 @@ description: Signzy is a global identity verification, KYC, KYB and AML complian
   verification, AML/sanctions/PEP screening, bank verification, Video KYC and
   Aadhaar eSign - behind a single token-authenticated REST API across India, the
   US, the Middle East and APAC.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
