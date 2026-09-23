@@ -1,10 +1,7 @@
 {
   "provider": "signzy",
   "sources": [
-    "signzy-authentication-api-openapi.yml",
-    "signzy-banking-api-openapi.yml",
-    "signzy-identity-india-api-openapi.yml",
-    "signzy-identity-us-api-openapi.yml"
+    "_original/signzy-openapi.yml"
   ],
   "outputs": [
     "signzy-authentication-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "signzy-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "signzy-openapi.yml: declared missing tag: Authentication",
+    "signzy-openapi.yml: declared missing tag: Banking",
+    "signzy-openapi.yml: declared missing tag: Identity (India)",
+    "signzy-openapi.yml: declared missing tag: Identity (US)",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "signzy-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "signzy-banking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "signzy-identity-india-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "signzy-identity-us-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

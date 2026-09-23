@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Signzy Verification Authentication API
-  description: 'Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC. Authentication is a LoopBack-style flow: POST username + API key to /api/customers/login to receive an access token, then pass that token in the `Authorization` header (raw token value, NOT a Bearer prefix) on every subsequent call. This document models a representative subset of the marketplace; the full catalog is documented at https://docs.signzy.com.'
+  description: Signzy is a global identity verification, KYC, KYB and AML compliance platform whose API marketplace exposes 240+ verification building blocks across India, the US, the Middle East and APAC.
   termsOfService: https://www.signzy.com/terms-of-service/
   contact:
     name: Signzy Support
