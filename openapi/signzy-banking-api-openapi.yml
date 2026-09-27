@@ -43,15 +43,6 @@ paths:
           description: Validation error
 components:
   schemas:
-    PassbookOtpRequest:
-      type: object
-      properties:
-        accountNumber:
-          type: string
-        ifsc:
-          type: string
-        mobileNumber:
-          type: string
     VerificationResult:
       type: object
       properties:
@@ -61,6 +52,15 @@ components:
         status:
           type: string
         message:
+          type: string
+    PassbookOtpRequest:
+      type: object
+      properties:
+        accountNumber:
+          type: string
+        ifsc:
+          type: string
+        mobileNumber:
           type: string
   securitySchemes:
     accessToken:

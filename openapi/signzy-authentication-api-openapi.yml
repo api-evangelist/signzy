@@ -51,18 +51,6 @@ paths:
           description: Token invalidated
 components:
   schemas:
-    LoginRequest:
-      type: object
-      required:
-      - username
-      - password
-      properties:
-        username:
-          type: string
-          description: Account username.
-        password:
-          type: string
-          description: Account API key.
     LoginResponse:
       type: object
       properties:
@@ -77,6 +65,18 @@ components:
           format: date-time
         userId:
           type: string
+    LoginRequest:
+      type: object
+      required:
+      - username
+      - password
+      properties:
+        username:
+          type: string
+          description: Account username.
+        password:
+          type: string
+          description: Account API key.
   securitySchemes:
     accessToken:
       type: apiKey

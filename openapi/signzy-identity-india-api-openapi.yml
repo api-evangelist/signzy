@@ -67,17 +67,6 @@ paths:
           description: Validation error
 components:
   schemas:
-    AadhaarRequest:
-      type: object
-      required:
-      - aadhaarNumber
-      properties:
-        aadhaarNumber:
-          type: string
-          description: 12-digit Aadhaar number.
-        consent:
-          type: string
-          description: Explicit end-user consent flag (Y/N).
     PanRequest:
       type: object
       required:
@@ -86,6 +75,17 @@ components:
         panNumber:
           type: string
           description: 10-character PAN.
+        consent:
+          type: string
+          description: Explicit end-user consent flag (Y/N).
+    AadhaarRequest:
+      type: object
+      required:
+      - aadhaarNumber
+      properties:
+        aadhaarNumber:
+          type: string
+          description: 12-digit Aadhaar number.
         consent:
           type: string
           description: Explicit end-user consent flag (Y/N).

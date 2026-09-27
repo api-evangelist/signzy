@@ -47,24 +47,6 @@ paths:
           description: Validation error
 components:
   schemas:
-    UsDocumentRequest:
-      type: object
-      required:
-      - country
-      - idType
-      properties:
-        frontUrl:
-          type: string
-          description: URL of the front image (TIFF, JPEG, PNG or single-page PDF).
-        backUrl:
-          type: string
-          description: URL of the back image (TIFF, JPEG, PNG or single-page PDF).
-        country:
-          type: string
-          description: Country of ID issuance.
-        idType:
-          type: string
-          description: Type of document, e.g. "driving license" or "passport".
     UsDocumentResult:
       type: object
       properties:
@@ -83,6 +65,24 @@ components:
           type: string
         graphicFields:
           type: object
+    UsDocumentRequest:
+      type: object
+      required:
+      - country
+      - idType
+      properties:
+        frontUrl:
+          type: string
+          description: URL of the front image (TIFF, JPEG, PNG or single-page PDF).
+        backUrl:
+          type: string
+          description: URL of the back image (TIFF, JPEG, PNG or single-page PDF).
+        country:
+          type: string
+          description: Country of ID issuance.
+        idType:
+          type: string
+          description: Type of document, e.g. "driving license" or "passport".
   securitySchemes:
     accessToken:
       type: apiKey
