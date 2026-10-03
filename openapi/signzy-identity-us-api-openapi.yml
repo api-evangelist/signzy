@@ -47,24 +47,6 @@ paths:
           description: Validation error
 components:
   schemas:
-    UsDocumentResult:
-      type: object
-      properties:
-        completeStatus:
-          type: object
-          description: Overall status and per-check details.
-        imageQuality:
-          type: object
-        authenticityCheck:
-          type: object
-        extractedFields:
-          type: object
-        predictedIdTypeFront:
-          type: string
-        predictedIdTypeBack:
-          type: string
-        graphicFields:
-          type: object
     UsDocumentRequest:
       type: object
       required:
@@ -83,6 +65,24 @@ components:
         idType:
           type: string
           description: Type of document, e.g. "driving license" or "passport".
+    UsDocumentResult:
+      type: object
+      properties:
+        completeStatus:
+          type: object
+          description: Overall status and per-check details.
+        imageQuality:
+          type: object
+        authenticityCheck:
+          type: object
+        extractedFields:
+          type: object
+        predictedIdTypeFront:
+          type: string
+        predictedIdTypeBack:
+          type: string
+        graphicFields:
+          type: object
   securitySchemes:
     accessToken:
       type: apiKey
