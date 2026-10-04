@@ -78,6 +78,16 @@ components:
         consent:
           type: string
           description: Explicit end-user consent flag (Y/N).
+    VerificationResult:
+      type: object
+      properties:
+        result:
+          type: object
+          description: Verification payload; shape varies by endpoint.
+        status:
+          type: string
+        message:
+          type: string
     AadhaarRequest:
       type: object
       required:
@@ -89,16 +99,6 @@ components:
         consent:
           type: string
           description: Explicit end-user consent flag (Y/N).
-    VerificationResult:
-      type: object
-      properties:
-        result:
-          type: object
-          description: Verification payload; shape varies by endpoint.
-        status:
-          type: string
-        message:
-          type: string
   securitySchemes:
     accessToken:
       type: apiKey
