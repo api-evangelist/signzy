@@ -1,4 +1,4 @@
-# Signzy (signzy)
+# Signzy
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,228 +66,148 @@
 
 Signzy is a global identity verification, KYC, KYB and AML compliance platform founded in Bengaluru, India in 2015. Its API marketplace exposes 240+ bespoke verification building blocks - document OCR, liveness and face match, deepfake detection, Aadhaar/PAN and other India checks, US ID and business verification, AML/sanctions/PEP screening, bank verification, Video KYC and Aadhaar eSign - behind a single token-authenticated REST API across India, the US, the Middle East and APAC.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/signzy/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/signzy/refs/heads/main/apis.yml)
+**Areas:** Identity Verification · KYC · KYB · AML · Onboarding · Compliance · RegTech
 
-## Tags
+## Signzy on APIs.io
 
-- Identity Verification
-- KYC
-- KYB
-- AML
-- Onboarding
-- Compliance
-- RegTech
+Everything profiled for Signzy is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/signzy/](https://apis.io/providers/signzy/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-07-17
-- **Modified:** 2026-07-17
+- [Signzy Authentication API](https://apis.io/apis/signzy/signzy-authentication-api/) — The Authentication API from Signzy — 2 operation(s) for authentication.
+- [Signzy Banking API](https://apis.io/apis/signzy/signzy-banking-api/) — The Banking API from Signzy — 1 operation(s) for banking.
+- [Signzy Identity (India) API](https://apis.io/apis/signzy/signzy-identity-india-api/) — The Identity (India) API from Signzy — 2 operation(s) for identity (india).
+- [Signzy Identity (US) API](https://apis.io/apis/signzy/signzy-identity-us-api/) — The Identity (US) API from Signzy — 1 operation(s) for identity (us).
 
-## Authentication
+### Published properties
 
-Signzy uses a LoopBack-style token flow. `POST /api/customers/login` with a `username` and API key (`password`) returns an access token in the `id` field. That token is then sent as the **raw value** of the `Authorization` header (no `Bearer` prefix) on every subsequent call. See [authentication/signzy-authentication.yml](authentication/signzy-authentication.yml).
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- **Production host:** `https://api.signzy.app`
-- **Preproduction host:** `https://api-preproduction.signzy.app`
+#### MCP servers (1)
 
-## APIs
+Model Context Protocol servers that expose the API to agents.
 
-### Signzy Identity Verification API
+- [signzy](https://apis.io/servers/signzy/signzy/)
 
-Global document OCR, liveness detection, face match and deepfake / synthetic-fraud checks that auto-read identity documents (driver's license, passport, national IDs) and verify the presented person in real time.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.signzy.com/use-cases/identity-verification-api/](https://www.signzy.com/use-cases/identity-verification-api/)
-- **Base URL:** `https://api.signzy.app`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Signzy Agentic Access](https://apis.io/agentic-access/signzy/signzy-agentic-access/)
 
-- Identity Verification
-- OCR
-- Liveness
-- Face Match
-- Deepfake
+#### Collections (8)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.signzy.com)
-- [API Reference](https://www.signzy.com/us/use-cases/identity-verification-api/)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/signzy.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Signzy Verification Authentication API](https://apis.io/collections/signzy/open-signzy-authentication-api/)
+- [Signzy Verification Authentication Banking API](https://apis.io/collections/signzy/open-signzy-banking-api/)
+- [Signzy Verification Authentication Identity (India) API](https://apis.io/collections/signzy/open-signzy-identity-india-api/)
+- [Signzy Verification Authentication Identity (US) API](https://apis.io/collections/signzy/open-signzy-identity-us-api/)
+- [Signzy Verification Authentication API](https://apis.io/collections/signzy/postman-signzy-authentication-api/)
+- [Signzy Verification Authentication Banking API](https://apis.io/collections/signzy/postman-signzy-banking-api/)
+- [Signzy Verification Authentication Identity (India) API](https://apis.io/collections/signzy/postman-signzy-identity-india-api/)
+- [Signzy Verification Authentication Identity (US) API](https://apis.io/collections/signzy/postman-signzy-identity-us-api/)
 
-### Signzy Aadhaar Verification API
+#### Overlays (1)
 
-Verifies an Indian Aadhaar (national ID) number with explicit consent and returns the masked demographic details on record via `POST /api/v3/aadhaar/verify`.
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- **Human URL:** [https://docs.signzy.com/api-marketplace/aadhaar-verification](https://docs.signzy.com/api-marketplace/aadhaar-verification)
-- **Base URL:** `https://api.signzy.app`
+- [Signzy Openapi Overlay](https://apis.io/overlays/signzy/signzy-openapi-overlay/)
 
-#### Tags
+#### Security (4)
 
-- Aadhaar
-- India
-- Identity
-- KYC
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Signzy Authentication](https://apis.io/security/signzy/signzy-authentication/)
+- [Signzy Domain Security](https://apis.io/security/signzy/signzy-domain-security/)
+- [Signzy Trust Center](https://apis.io/security/signzy/signzy-trust-center/)
+- [Signzy Vulnerability Disclosure](https://apis.io/security/signzy/signzy-vulnerability-disclosure/)
 
-- [Documentation](https://docs.signzy.com/api-marketplace/aadhaar-verification)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/signzy.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+#### Plans and pricing (1)
 
-### Signzy PAN Verification API
+Published plans, tiers and prices.
 
-Validates an Indian PAN (Permanent Account Number) against the income-tax database and returns name and status via `POST /api/v3/pan/simple`.
+- [Signzy Plans Pricing](https://apis.io/plans/signzy/signzy-plans-pricing/)
 
-- **Human URL:** [https://docs.signzy.com/api-marketplace/pan-verification](https://docs.signzy.com/api-marketplace/pan-verification)
-- **Base URL:** `https://api.signzy.app`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- PAN
-- India
-- Tax Identity
-- KYC
+- [Signzy Rate Limits](https://apis.io/rate-limits/signzy/signzy-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://docs.signzy.com)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/signzy.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+What the API costs to run, by operation.
 
-### Signzy US Document Intelligence API
+- [Signzy Finops](https://apis.io/finops/signzy/signzy-finops/)
 
-Reads and authenticates US identity documents (driver's license, passport) from an image URL, returning OCR-extracted fields, image quality and authenticity checks via `POST /api/v3/us/document-intelligence-advance`.
+## Where to find this API
 
-- **Human URL:** [https://docs.signzy.com/us-apis/id-intelligence-advance](https://docs.signzy.com/us-apis/id-intelligence-advance)
-- **Base URL:** `https://api.signzy.app`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- US
-- Document OCR
-- Authenticity
-- Identity
-
-#### Properties
-
-- [Documentation](https://docs.signzy.com/us-apis/id-intelligence-advance)
-- [API Reference](https://www.signzy.com/us/verification-api-marketplace/)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/signzy.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-
-### Signzy Business Verification (KYB) API
-
-Know-Your-Business verification - EIN / SOS business lookups, UBO checks, bankruptcy and credit-underwriting reports across US states and Indian entities.
-
-- **Human URL:** [https://www.signzy.com/us/verification-api-marketplace/](https://www.signzy.com/us/verification-api-marketplace/)
-- **Base URL:** `https://api.signzy.app`
-
-#### Tags
-
-- KYB
-- Business Verification
-- EIN
-- UBO
-
-#### Properties
-
-- [Documentation](https://docs.signzy.com)
-- [API Reference](https://www.signzy.com/us/verification-api-marketplace/)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Signzy AML & Sanctions Screening API
-
-Sanction-list, Politically Exposed Person (PEP) and adverse-media screening plus transaction monitoring, expanded through the 2024 Difenz acquisition.
-
-- **Human URL:** [https://www.signzy.com/use-cases/kyc-aml-screening](https://www.signzy.com/use-cases/kyc-aml-screening)
-- **Base URL:** `https://api.signzy.app`
-
-#### Tags
-
-- AML
-- Sanctions
-- PEP
-- Adverse Media
-
-#### Properties
-
-- [Documentation](https://www.signzy.com/use-cases/kyc-aml-screening)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Signzy Bank Verification & Account Aggregator API
-
-Bank account verification, name match, balance and transaction checks, and India Account Aggregator consent-based data pulls, including passbook OTP flows via `POST /api/v3/underwriting/get-passbook-otp`.
-
-- **Human URL:** [https://www.signzy.com/fintech-apis/account-aggregator-api](https://www.signzy.com/fintech-apis/account-aggregator-api)
-- **Base URL:** `https://api.signzy.app`
-
-#### Tags
-
-- Bank Verification
-- Account Aggregator
-- Penny Drop
-- India
-
-#### Properties
-
-- [Documentation](https://www.signzy.com/fintech-apis/account-aggregator-api)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Signzy Video KYC API
-
-RBI-compliant assisted Video KYC onboarding with agent-led liveness, document capture and audit trails for regulated customer onboarding.
-
-- **Human URL:** [https://docs.signzy.com/vkyc/login-api](https://docs.signzy.com/vkyc/login-api)
-- **Base URL:** `https://api.signzy.app`
-
-#### Tags
-
-- Video KYC
-- Onboarding
-- RBI
-
-#### Properties
-
-- [Documentation](https://docs.signzy.com/vkyc/login-api)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-### Signzy eSign & Digital Contracting API
-
-Paperless Aadhaar eSign, eStamping and Contract360 lifecycle management for legally binding digital agreements.
-
-- **Human URL:** [https://docs.signzy.com/contract360](https://docs.signzy.com/contract360)
-- **Base URL:** `https://api.signzy.app`
-
-#### Tags
-
-- eSign
-- Aadhaar eSign
-- eStamping
-- Contracts
-
-#### Properties
-
-- [Documentation](https://docs.signzy.com/contract360)
-- [OpenAPI](openapi/signzy-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/signzy)
-- [LinkedIn](https://www.linkedin.com/company/signzy)
 - [Website](https://www.signzy.com/)
 - [Documentation](https://docs.signzy.com)
-- [Plans](plans/signzy-plans-pricing.yml)
-- [Rate Limits](rate-limits/signzy-rate-limits.yml)
-- [Fin Ops](finops/signzy-finops.yml)
+- [Getting started](https://docs.signzy.com/getting-started)
+- [API reference](https://www.signzy.com/us/verification-api-marketplace/)
+- [Sign up](https://www.signzy.com/contact)
+- [Support](https://www.signzy.com/contact)
+- [Blog](https://www.signzy.com/blogs)
+- [Terms of service](https://www.signzy.com/terms-of-service/)
+- [Privacy policy](https://www.signzy.com/privacy-policy/)
+- [GitHub](https://github.com/signzy)
+- [Status](https://status.signzy.com)
 
-## Company Notes
+## API Evangelist rating
 
-- **Founded:** 2015, Bengaluru, India (founders Ankit Ratan, Arpit Ratan, Ankur Pandey).
-- **Funding:** ~$38.7M raised; $26M Series B in 2022. Investors include Kalaari Capital, SAP and Mastercard (strategic partner/investor, not an acquirer).
-- **Acquisition (by Signzy):** Acquired Difenz in early 2024 to expand AML and transaction-monitoring capability.
-- **Compliance:** ISO 27001 certified, SOC 2, GDPR, FATF-aligned, with data-localization/residency options.
+**Kin Score 52.6** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 49.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 62.5 |
+| Access clarity | 55.3 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 21.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/signzy/](https://apis.io/providers/signzy/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Signzy: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/signzy/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
